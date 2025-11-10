@@ -1,6 +1,7 @@
 {
   "name": "card-selector-3d",
   "version": "1.0.0",
+  "homepage": "https://luis-122003.github.io/card-selector-3d",
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
   "main": "eslint.config.js",
   "dependencies": {
@@ -121,13 +122,12 @@
     "gh-pages": "^6.3.0",
     "vite": "^5.2.0"
   },
- "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview",
-  "deploy": "gh-pages -d dist"
-}
-  ,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luis-122003/card-selector-3d.git"
@@ -137,6 +137,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/luis-122003/card-selector-3d/issues"
-  },
-  "homepage": "https://github.com/luis-122003/card-selector-3d#readme"
+  }
 }
