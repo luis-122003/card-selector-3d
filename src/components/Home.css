@@ -1,40 +1,78 @@
 .home {
-  min-height: 100dvh;
-  display: grid;
-  place-items: center;
-  color: #e5e7eb;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column; /* Para poder mover el botón más abajo */
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 24px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+  background: #000; /* fallback */
 }
 
-.home .content {
-  backdrop-filter: blur(2px);
-  background: rgba(0,0,0,.35);
-  padding: 24px 28px;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.35);
+/* Fondo con imagen translúcida */
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/assets/images/fondo.jpg') center/cover no-repeat;
+  opacity: 1; /* Ajusta transparencia para que no opaque el contenido */
+  z-index: 0;
 }
 
-.home h1 {
-  font-size: clamp(28px, 4vw, 48px);
-  margin-bottom: 8px;
+/* Contenedor del texto */
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 32px 48px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
+  animation: fadeInScale 1.2s ease-out;
 }
 
-.home p {
-  color: #cbd5e1;
-  margin: 0 0 18px;
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.home .btn {
+.content h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #facc15; /* Amarillo heroico */
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.content p {
+  font-size: 18px;
+  color: #e5e7eb;
+  margin-bottom: 28px;
+}
+
+/* Botón más abajo y centrado */
+.btn {
+  margin-top: 40px; /* separa del texto */
   display: inline-block;
-  padding: 12px 16px;
-  border-radius: 12px;
-  background: #7c3aed;
-  color: white;
+  padding: 14px 28px;
+  font-size: 18px;
   font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
   border: none;
+  border-radius: 12px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.6);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #d11111, #a855f7);
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(124, 58, 237, 0.8);
 }

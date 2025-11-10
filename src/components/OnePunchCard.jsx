@@ -28,7 +28,7 @@ export default function OnePunchCard({ character }) {
               width: "100%",
               height: "100%",
               borderRadius: "12px",
-              background: "rgba(0,0,0,0.2)",
+              background: "rgba(145, 26, 26, 0.2)",
             }}
           ></model-viewer>
         </div>

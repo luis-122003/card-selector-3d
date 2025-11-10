@@ -19,7 +19,7 @@
   border-radius: var(--radius);
   transform-style: preserve-3d;
   transition: transform 420ms ease, box-shadow 240ms ease, outline-color 160ms ease;
-  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+  box-shadow: 0 10px 22px rgba(192, 22, 22, 0.25);
   overflow: hidden;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .opc-front {
-  background: #0f1220;
+  background: #2342ca;
   display: grid;
   grid-template-rows: 1fr auto;
 }
