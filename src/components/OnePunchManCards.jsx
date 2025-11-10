@@ -6,8 +6,8 @@ const characters = [
     id: 1,
     name: "Saitama",
     series: "One Punch Man",
-    image: "/src/assets/images/saitama.png",
-    model: "/src/assets/models/saitama.glb",
+    image: "public/assets/images/saitama.png",
+    model: "public/assets/models/saitama.glb",
     power: "One Punch",
     description: "El héroe más fuerte, capaz de derrotar a cualquier enemigo con un solo golpe."
   },
@@ -15,8 +15,8 @@ const characters = [
     id: 2,
     name: "Genos",
     series: "One Punch Man",
-    image: "/src/assets/images/genos.png",
-    model: "/src/assets/models/genos.glb",
+    image: "public/assets/images/genos.png",
+    model: "public/assets/models/genos.glb",
     power: "Incineration Cannon",
     description: "Un poderoso cyborg con fuego en su corazón y lealtad inquebrantable hacia Saitama."
   },
@@ -24,8 +24,8 @@ const characters = [
     id: 3,
     name: "Tatsumaki",
     series: "One Punch Man",
-    image: "/src/assets/images/tatsumaki.png",
-    model: "/src/assets/models/tatsumaki.glb",
+    image: "public/assets/images/tatsumaki.png",
+    model: "public/assets/models/tatsumaki.glb",
     power: "Psychokinesis",
     description: "La poderosa heroína con habilidades telequinéticas que desafían la gravedad."
   },
@@ -34,8 +34,8 @@ const characters = [
     id: 4,
     name: "Speed-o'-Sound Sonic",
     series: "One Punch Man",
-    image: "/src/assets/images/sonic.png",
-    model: "/src/assets/models/sonic.glb",
+    image: "public/assets/images/sonic.png",
+    model: "public/assets/models/sonic.glb",
     power: "Super Speed",
     description: "Un ninja extremadamente rápido y rival recurrente de Saitama."
   },
@@ -43,8 +43,8 @@ const characters = [
     id: 5,
     name: "Garou",
     series: "One Punch Man",
-    image: "/src/assets/images/garou.png",
-    model: "/src/assets/models/garou.glb",
+    image: "public/assets/images/garou.png",
+    model: "public/assets/models/garou.glb",
     power: "Martial Arts",
     description: "Un ex-heroico convertido en villano, conocido por su habilidad en artes marciales y su odio hacia los héroes."
   },
@@ -52,8 +52,8 @@ const characters = [
     id: 6,
     name: "Fubuki",  
     series: "One Punch Man",
-    image: "/src/assets/images/fubuki.png",
-    model: "/src/assets/models/fubuki.glb",
+    image: "public/assets/images/fubuki.png",
+    model: "public/assets/models/fubuki.glb",
     power: "Psychokinesis",
     description: "La poderosa heroína con habilidades telequinéticas que desafían la gravedad."
   }

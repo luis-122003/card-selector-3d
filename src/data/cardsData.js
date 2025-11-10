@@ -5,8 +5,8 @@ export const cardsData = [
     name: "Saitama",
     status: "En reposo",
     series: "One Punch Man",
-    image: "/assets/images/saitama.png", 
-    model: "/assets/models/saitama.glb",
+    image: "public/assets/images/saitama.png", 
+    model: "public/assets/models/saitama.glb",
     power: "One Punch",
   },
   {
@@ -14,8 +14,8 @@ export const cardsData = [
     name: "Genos",
     status: "En reposo",
     series: "One Punch Man",
-    image: "/assets/images/genos.png",
-    model: "/assets/models/genos.glb",
+    image: "public/assets/images/genos.png",
+    model: "public/assets/models/genos.glb",
     power: "Incineration Cannon",
   },
   {
@@ -23,8 +23,8 @@ export const cardsData = [
     name: "Tatsumaki",
     status: "En reposo",
     series: "One Punch Man",
-    image: "/assets/images/tatsumaki.png",
-    model: "/assets/models/tatsumaki.glb",
+    image: "public/assets/images/tatsumaki.png",
+    model: "public/assets/models/tatsumaki.glb",
     power: "Psychokinesis",
   },
   {
@@ -32,8 +32,8 @@ export const cardsData = [
     name: "Speed-o-Sound Sonic",
     status: "En reposo",
     series: "One Punch Man",
-    image: "/assets/images/sonic.png",
-    model: "/assets/models/sonic.glb",
+    image: "public/assets/images/sonic.png",
+    model: "public/assets/models/sonic.glb",
     power: "Ten Shadows Burial",
   },
 
@@ -42,8 +42,8 @@ export const cardsData = [
     name: "Garou",
     status: "En reposo",
     series: "One Punch Man",
-    image: "/assets/images/garou.png",
-    model: "/assets/models/garou.glb",
+    image: "public/assets/images/garou.png",
+    model: "public/assets/models/garou.glb",
     power: "Martial Arts",
   }
 ];
