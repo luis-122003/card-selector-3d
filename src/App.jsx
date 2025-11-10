@@ -1,20 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Home from "./components/Home"
-import OnePunchManCards from "./components/OnePunchManCards"
-import "./App.css"
+// src/App.jsx
+import React from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
-function App() {
+import Home from './components/Home.jsx'
+import CardSelector from './components/CardSelector.jsx'
+import ModelViewer from './components/ModelViewer.jsx' // si aún no lo tienes, crea un placeholder
+
+export default function App() {
   return (
-    <Router>
-      <Routes>
-        {/* 🔹 Página principal */}
-        <Route path="/" element={<Home />} />
-
-        {/* 🔹 Vista con las tarjetas giratorias */}
-        <Route path="/cards" element={<OnePunchManCards />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/selector" element={<CardSelector />} />
+      <Route path="/viewer" element={<ModelViewer />} />
+      {/* Fallback para rutas desconocidas */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   )
 }
-
-export default App

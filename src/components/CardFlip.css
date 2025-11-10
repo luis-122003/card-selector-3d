@@ -1,109 +1,85 @@
-body {
-  background: radial-gradient(circle at top, #aa3333, #9c1f1f);
-  color: #751c1c;
-  font-family: "Poppins", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.card-page {
-  text-align: center;
-}
-
-.title {
-  margin-bottom: 30px;
-  font-size: 2rem;
-  letter-spacing: 2px;
-  text-shadow: 0 0 15px #ffcc00;
-}
-
-.wrap {
+.opc-card {
+  --w: 220px;
+  --h: 310px;
+  --radius: 14px;
   position: relative;
-  margin: 0 auto;
-  width: 350px;
-  height: 500px;
-  cursor: pointer;
-  transition: transform 1s ease-in-out;
-  transform-style: preserve-3d;
+  width: var(--w);
+  height: var(--h);
   perspective: 1000px;
-}
-
-.wrap div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  backface-visibility: hidden;
-  box-shadow: inset 0 0 45px rgba(105, 23, 23, 0.2), 0 12px 25px -10px rgba(0,0,0,0.6);
-  background: rgba(156, 35, 35, 0.9);
-  border: 2px solid #857843;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 🔹 Cara frontal */
-.side-a {
-  z-index: 2;
-  padding: 20px;
-}
-
-.character-img {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
-  border-radius: 50%;
-  border: 3px solid #ffcc00;
-  margin-bottom: 15px;
-}
-
-.character-name {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-  color: #ffcc00;
-  text-shadow: 0 0 10px #ffcc00;
-}
-
-.character-power {
-  font-size: 1rem;
-  color: #ffe680;
-  margin-bottom: 10px;
-}
-
-.character-desc {
-  font-size: 0.9rem;
-  color: #ddd;
-  margin: 0 15px 10px;
-}
-
-.character-skills {
-  list-style: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
   padding: 0;
-  color: #fff;
-  font-size: 0.9rem;
-  text-align: left;
 }
 
-.character-skills li {
-  margin: 4px 0;
-}
-
-/* 🔹 Cara trasera */
-.side-b {
-  transform: rotateY(180deg);
-  background: rgba(20, 20, 20, 0.9);
-}
-
-.model-3d {
+.opc-card-inner {
+  position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 15px;
+  border-radius: var(--radius);
+  transform-style: preserve-3d;
+  transition: transform 420ms ease, box-shadow 240ms ease, outline-color 160ms ease;
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+  overflow: hidden;
 }
 
-/* 🔹 Efecto de flip */
-.wrap:hover {
+.opc-card:hover .opc-card-inner,
+.opc-card:focus-visible .opc-card-inner {
+  transform: rotateY(8deg) rotateX(2deg) translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.35);
+}
+
+.opc-card.is-selected .opc-card-inner {
+  outline: 3px solid #7c3aed;
+  box-shadow: 0 0 0 4px rgba(124,58,237,.25), 0 18px 36px rgba(0,0,0,.4);
+}
+
+.opc-front,
+.opc-back {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+}
+
+.opc-front {
+  background: #0f1220;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.opc-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.opc-title {
+  padding: 10px 12px;
+  color: #e5e7eb;
+  font-weight: 600;
+  background: linear-gradient(180deg, rgba(17,24,39,.6), rgba(17,24,39,.95));
+}
+
+.opc-back {
   transform: rotateY(180deg);
+  background: radial-gradient(1200px 400px at 50% -20%, #1f2937, #0b0f1a);
+  color: #cbd5e1;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.opc-badge {
+  margin-top: 8px;
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #334155;
+  color: #e2e8f0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
 }

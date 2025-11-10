@@ -1,21 +1,18 @@
-import { useNavigate } from "react-router-dom";
-import "./Home.css";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import './Home.css'
 
 export default function Home() {
-  const navigate = useNavigate();
-
-  const goToCards = () => {
-    navigate("/cards");
-  };
-
+  const nav = useNavigate()
   return (
-    <div className="home-container">
-      <div className="overlay">
-        <h1 className="home-title">Bienvenido a One Punch Man Cards</h1>
-        <button className="home-button" onClick={goToCards}>
-          Ver Cartas
+    <main className="home">
+      <div className="content">
+        <h1>ONE PUNCH MAN - HEROES</h1>
+        <p>Explora las cartas y visualízalas en 3D</p>
+        <button className="btn" onClick={() => nav('/selector')}>
+          Ir al selector
         </button>
       </div>
-    </div>
-  );
+    </main>
+  )
 }

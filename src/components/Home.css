@@ -1,211 +1,40 @@
-/* Variables de diseño temática One Punch Man */
-:root {
-  --saitama-yellow: #49473d00;
-  --saitama-red: #d32f2f;
-  --saitama-red-hover: #f44336;
-  --saitama-red-active: #b17878;
-  --manga-black: #7a1717;
-  --hero-white: #ffffff;
-  --overlay-bg: rgba(5, 5, 5, 0.85);
-  --overlay-blur: 8px;
-  --border-radius-lg: 20px;
-  --border-radius-md: 10px;
-  --spacing-xl: 3rem;
-  --spacing-lg: 2.5rem;
-  --spacing-md: 1.5rem;
-  --transition-punch: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --transition-smooth: all 0.3s ease-out;
-}
-
-.home-container {
-  position: relative;
-  width: 100vw; /* Asegúrate de que ocupe todo el ancho */
-  height: 100vh; /* Ocupa toda la altura de la pantalla */
-  background-image: url("src/assets/images/fondo.jpg"); /* Asegúrate de que la ruta sea correcta */
-  background-size: cover; /* Cubre todo el contenedor */
-  background-position: center; /* Centra la imagen */
-  background-repeat: no-repeat; /* No repite la imagen */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-/* Efecto de viñeta manga */
-
-
-.overlay {
-  background-color: var(--overlay-bg);
-  backdrop-filter: blur(var(--overlay-blur));
-  -webkit-backdrop-filter: blur(var(--overlay-blur));
-  padding: var(--spacing-xl);
-  border-radius: var(--border-radius-lg);
-  border: 3px solid var(--saitama-yellow);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 215, 0, 0.1);
+.home {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  color: #e5e7eb;
   text-align: center;
-  color: var(--hero-white);
-  max-width: 600px;
-  width: 100%;
-  animation: heroEntry 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  position: relative;
-  z-index: 1;
+  padding: 24px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Efecto de entrada dramático estilo One Punch Man */
-@keyframes heroEntry {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(50px);
-  }
-  60% {
-    transform: scale(1.05) translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+.home .content {
+  backdrop-filter: blur(2px);
+  background: rgba(0,0,0,.35);
+  padding: 24px 28px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.35);
 }
 
-.home-title {
-  font-size: clamp(1.75rem, 4vw, 2.8rem);
-  font-weight: 900;
-  margin-bottom: var(--spacing-lg);
-  line-height: 1.1;
-  text-shadow: 3px 3px 0px var(--saitama-red), 6px 6px 0px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--saitama-yellow);
-  position: relative;
-  animation: titlePulse 2s ease-in-out infinite;
+.home h1 {
+  font-size: clamp(28px, 4vw, 48px);
+  margin-bottom: 8px;
 }
 
-@keyframes titlePulse {
-  0%,
-  100% {
-    text-shadow: 3px 3px 0px var(--saitama-red), 6px 6px 0px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5);
-  }
-  50% {
-    text-shadow: 3px 3px 0px var(--saitama-red), 6px 6px 0px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.8);
-  }
+.home p {
+  color: #cbd5e1;
+  margin: 0 0 18px;
 }
 
-.home-button {
-  padding: 1rem 2.5rem;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  font-weight: 800;
-  border: 3px solid var(--manga-black);
-  border-radius: var(--border-radius-md);
-  background: linear-gradient(135deg, var(--saitama-red) 0%, #c62828 100%);
-  color: var(--hero-white);
+.home .btn {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #7c3aed;
+  color: white;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
-  transition: var(--transition-punch);
-  box-shadow: 0 4px 0px var(--manga-black), 0 8px 20px rgba(211, 47, 47, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  position: relative;
-  overflow: hidden;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-family: system-ui, -apple-system, sans-serif;
-}
-
-/* Efecto de impacto estilo manga */
-.home-button::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.6) 0%, transparent 70%);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-  border-radius: 50%;
-}
-
-.home-button:hover {
-  background: linear-gradient(135deg, var(--saitama-red-hover) 0%, #d32f2f 100%);
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 6px 0px var(--manga-black), 0 12px 30px rgba(244, 67, 54, 0.7), 0 0 40px rgba(255, 215, 0, 0.4), inset 0
-    1px 0 rgba(255, 255, 255, 0.4);
-  border-color: var(--saitama-yellow);
-}
-
-.home-button:hover::after {
-  width: 400px;
-  height: 400px;
-}
-
-.home-button:active {
-  background: linear-gradient(135deg, var(--saitama-red-active) 0%, #b71c1c 100%);
-  transform: translateY(-1px) scale(1);
-  box-shadow: 0 2px 0px var(--manga-black), 0 4px 15px rgba(183, 28, 28, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all 0.1s ease-out;
-}
-
-/* Estado de foco accesible con estilo OPM */
-.home-button:focus-visible {
-  outline: 4px solid var(--saitama-yellow);
-  outline-offset: 4px;
-  box-shadow: 0 4px 0px var(--manga-black), 0 8px 20px rgba(211, 47, 47, 0.5), 0 0 0 8px rgba(255, 215, 0, 0.3);
-}
-
-/* Líneas de acción manga (decorativas) */
-.overlay::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 2px solid rgba(255, 215, 0, 0.2);
-  border-radius: calc(var(--border-radius-lg) - 5px);
-  pointer-events: none;
-}
-
-/* Responsive para tablets */
-@media (max-width: 768px) {
-  .overlay {
-    padding: var(--spacing-lg);
-    border-width: 2px;
-  }
-
-  .home-title {
-    margin-bottom: var(--spacing-md);
-    text-shadow: 2px 2px 0px var(--saitama-red), 4px 4px 0px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.5);
-  }
-
-  .home-button {
-    border-width: 2px;
-  }
-}
-
-/* Responsive para móviles */
-@media (max-width: 480px) {
-  .overlay {
-    padding: 1.5rem;
-    border-radius: 16px;
-    border-width: 2px;
-  }
-
-  .home-button {
-    padding: 0.875rem 1.75rem;
-    width: 100%;
-    box-shadow: 0 3px 0px var(--manga-black), 0 6px 15px rgba(211, 47, 47, 0.5);
-  }
-
-  .home-button:hover {
-    box-shadow: 0 4px 0px var(--manga-black), 0 8px 20px rgba(244, 67, 54, 0.7), 0 0 30px rgba(255, 215, 0, 0.4);
-  }
-}
-
-/* Mejora de rendimiento para dispositivos con preferencia de movimiento reducido */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  .home-title {
-    animation: none;
-  }
 }

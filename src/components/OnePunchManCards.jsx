@@ -1,75 +1,40 @@
-import "../App.css";
-import OnePunchCard from "./OnePunchCard";
+import React from 'react'
+import './CardFlip.css'
 
-const characters = [
-  {
-    id: 1,
-    name: "Saitama",
-    series: "One Punch Man",
-    image: "public/assets/images/saitama.png",
-    model: "public/assets/models/saitama.glb",
-    power: "One Punch",
-    description: "El héroe más fuerte, capaz de derrotar a cualquier enemigo con un solo golpe."
-  },
-  {
-    id: 2,
-    name: "Genos",
-    series: "One Punch Man",
-    image: "public/assets/images/genos.png",
-    model: "public/assets/models/genos.glb",
-    power: "Incineration Cannon",
-    description: "Un poderoso cyborg con fuego en su corazón y lealtad inquebrantable hacia Saitama."
-  },
-  {
-    id: 3,
-    name: "Tatsumaki",
-    series: "One Punch Man",
-    image: "public/assets/images/tatsumaki.png",
-    model: "public/assets/models/tatsumaki.glb",
-    power: "Psychokinesis",
-    description: "La poderosa heroína con habilidades telequinéticas que desafían la gravedad."
-  },
+export default function OnePunchCard({ character, selected, onClick }) {
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '')
 
-  {
-    id: 4,
-    name: "Speed-o'-Sound Sonic",
-    series: "One Punch Man",
-    image: "public/assets/images/sonic.png",
-    model: "public/assets/models/sonic.glb",
-    power: "Super Speed",
-    description: "Un ninja extremadamente rápido y rival recurrente de Saitama."
-  },
-  {
-    id: 5,
-    name: "Garou",
-    series: "One Punch Man",
-    image: "public/assets/images/garou.png",
-    model: "public/assets/models/garou.glb",
-    power: "Martial Arts",
-    description: "Un ex-heroico convertido en villano, conocido por su habilidad en artes marciales y su odio hacia los héroes."
-  },
-  {
-    id: 6,
-    name: "Fubuki",  
-    series: "One Punch Man",
-    image: "public/assets/images/fubuki.png",
-    model: "public/assets/models/fubuki.glb",
-    power: "Psychokinesis",
-    description: "La poderosa heroína con habilidades telequinéticas que desafían la gravedad."
-  }
+  const image = character.image?.startsWith('http')
+    ? character.image
+    : `${base}${(character.image || '').replace(/^public\//, '')}` // corrige si quedó 'public/...'
 
-];
+  // Si usas model viewer después:
+  const model = character.model
+    ? (character.model.startsWith('http')
+        ? character.model
+        : `${base}${character.model.replace(/^public\//, '')}`)
+    : null
 
-export default function OnePunchManCards() {
   return (
-    <div className="cards-page">
-      <h1 className="cards-title">ONE PUNCH MAN - HEROES</h1>
-      <p className="cards-subtitle" style={{ textAlign: "center" }}>Pase por encima de tu carta favorita de One Punch Man</p>
-      <div className="cards-container">
-        {characters.map((c) => (
-          <OnePunchCard key={c.id} character={c} />
-        ))}
+    <button
+      className={`opc-card ${selected ? 'is-selected' : ''}`}
+      onClick={() => onClick?.(character)}
+      title={character.name}
+      aria-pressed={!!selected}
+    >
+      <div className="opc-card-inner">
+        <div className="opc-front">
+          <img src={image} alt={character.name} loading="lazy" />
+          <div className="opc-title">{character.name}</div>
+        </div>
+        <div className="opc-back">
+          <div>
+            <div style={{ fontWeight: 600 }}>{character.power || '—'}</div>
+            <div style={{ marginTop: 8 }}>{character.description || ''}</div>
+            <span className="opc-badge">{character.series || 'OPM'}</span>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    </button>
+  )
 }
